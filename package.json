@@ -1,0 +1,20 @@
+{
+  "name": "conexion_mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "mongose": "^0.0.2-security",
+    "nodemon": "^2.0.20",
+    "pug": "^3.0.2"
+  }
+}

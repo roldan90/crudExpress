@@ -1,0 +1,48 @@
+npm init  yarn install
+npm i express dotenv pug mogose
+crear nuestro archivo .env que contenda PORT
+crear scripts personalizados para facilitar la ejecucion
+
+crear el punto de inicio de nuestra app
+crear carpeta /database con archivo config.js
+crear una carpeta llamada views que contenga el archivo index.pug
+crear carpeta models
+crer un archivo Contacto.js dentro de models
+refactorizar la ruta de la logica del slash
+
+crear carpeta routes y controllers
+crear las rutas o las rutas en / en el archivo contactos.js
+crear la logica de la ruta /
+adecuar la vista index.pug para que muestre los datos
+crear una ruta tipo post para crear un contacto nuevo
+crear la configuracion de lectura de request en index.js
+
+En el archivo index.js se agrego las lineas
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+Para que en request del controller pueda interpretar que la informacion
+que se le esta mandando esta en formato json y asi podamos usarla con las
+banderas
+
+En el archivo contactos.js de la carpeta controller se definio la funcion 
+
+const createContacto = async(req, res)=>{
+    try {
+        const contacto_nuevo = new Contacto(req.body);
+
+        await contacto_nuevo.save();
+
+       return res.redirect("/");
+     } catch (error) {
+        console.log(error);
+        return res.json({ok: false, msg: "Error en el servidor, contacta con el administrador"});
+    }
+}
+ 
+module.exports = {readContactos, createContacto};
+
+Para asi poder dar de alta los nuevos usuarios
+
+
