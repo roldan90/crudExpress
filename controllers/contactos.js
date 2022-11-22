@@ -37,9 +37,9 @@ const deleteContacto = async(req, res) => {
 }
 
 const updateContacto = async(req, res) => {
+    const id = req.body.edit_id;
     try {
-        const contacto_nuevo = new Contacto(req.body);
-        await contacto_nuevo.save();
+        await Contacto.findByIdAndUpdate(id, req.body);
         return res.redirect("/");
     } catch (error) {
         console.log(error);
